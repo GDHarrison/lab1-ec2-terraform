@@ -40,7 +40,8 @@ resource "aws_security_group" "web_sg" {
 resource "aws_instance" "web_server" {
   ami           = "ami-0c101f26f147fa7fd"
   instance_type = "t3.micro"
-
+  key_name = "lab1-ec2-key"
+  
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
   user_data = <<-EOF
